@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:57:12 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/05 16:09:20 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:50:23 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ typedef struct s_data {
 	int			line_length;
 	int			endian;
 }				t_data;
+
+typedef struct s_mx_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}				t_mlx_data;
+
+int	handle_intput(int keysym, t_mlx_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	return (0);
+	
+}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -39,57 +52,38 @@ int	main(void)
 	int		line_bytes;
 	int		endian;
 	char	*buffer = mlx_get_data_addr(image, &pixels_bits, &line_bytes, &endian);
-	int		color = 0xABCDEF;
+	int		color = 0xefcdab;
 	
+	line_bytes /= 4;
 	if (pixels_bits != 32)
 		color = mlx_get_color_value(mlx, color);
-	/*	
-	for (int y = 0; y < 1080; ++y)
-	for (int x = 0; x < 1920; ++x)
+	for(int y = 0; y < 1920; ++y)
+	for(int x = 0; x < 1080; ++x)
 	{
-		int pixel = (y * line_bytes) + (x * 4);
-		if (endian == 1)        // Most significant (Alpha) byte first
+    	buffer[(y * line_bytes) + x] = color;
+	}
+	/*
+	for (int y = 0; y < 1080; ++y)
+	for(int x = 0; x < 1920; ++x)
+	{
+    	int pixel = (y * line_bytes) + (x * 4);
+
+    	if (endian == 1)        // Most significant (Alpha) byte first
     	{
-        	buffer[pixel + 0] = (color >> 24);
-        	buffer[pixel + 1] = (color >> 16) & 0xFF;
-        	buffer[pixel + 2] = (color >> 8) & 0xFF;
-        	buffer[pixel + 3] = (color) & 0xFF;
+    	    buffer[pixel + 0] = (color >> 24);
+    	    buffer[pixel + 1] = (color >> 16) & 0xFF;
+    	    buffer[pixel + 2] = (color >> 8) & 0xFF;
+    	    buffer[pixel + 3] = (color) & 0xFF;
     	}
     	else if (endian == 0)   // Least significant (Blue) byte first
     	{
-        	buffer[pixel + 0] = (color) & 0xFF;
-        	buffer[pixel + 1] = (color >> 8) & 0xFF;
-        	buffer[pixel + 2] = (color >> 16) & 0xFF;
-        	buffer[pixel + 3] = (color >> 24);
+    	    buffer[pixel + 0] = (color) & 0xFF;
+    	    buffer[pixel + 1] = (color >> 8) & 0xFF;
+    	    buffer[pixel + 2] = (color >> 16) & 0xFF;
+    	    buffer[pixel + 3] = (color >> 24);
     	}
 	}*/
-	printf("Base Color: %X\n", color);
-	for (int y = 0; y < 1080; ++y)
-	{
-	    for (int x = 0; x < 1920; ++x)
-	    {
-	        int pixel = (y * line_bytes) + (x * 4);
-	
-	        // Calculer la composante rouge en fonction de la position x
-	        int red = (x * 255) / 1920;
-			printf("Red: %d\n", red);
-	        if (endian == 1)        // Most significant (Alpha) byte first
-	        {
-	            buffer[pixel + 0] = red;       // Rouge
-	            buffer[pixel + 1] = (char)255;       // Vert
-	            buffer[pixel + 2] = 0;         // Bleu
-	            buffer[pixel + 3] = (char)255;       // Alpha
-	        }
-	        else if (endian == 0)   // Least significant (Blue) byte first
-	        {
-	            buffer[pixel + 0] = 0;         // Bleu
-	            buffer[pixel + 1] = (char)255;       // Vert
-	            buffer[pixel + 2] = red;       // Rouge
-	            buffer[pixel + 3] = (char)255;       // Alpha
-	        }
-	    }
-	}
-
 	mlx_put_image_to_window(mlx, mlx_win, image, 0, 0);
 	mlx_loop(mlx);
+	free(mlx);
 }
