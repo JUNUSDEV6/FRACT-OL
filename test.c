@@ -6,11 +6,11 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:06:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/06 14:47:25 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:39:58 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+/*
 #include "fractol.h"
 #include <mlx.h>
 
@@ -30,4 +30,4 @@ int	handle_intput(int keysym, t_mlx_data *data)
 int	main(void)
 {
 	
-}
+}*/

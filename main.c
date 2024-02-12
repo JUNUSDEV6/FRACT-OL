@@ -6,13 +6,26 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:57:12 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/06 14:50:23 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:28:30 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <mlx.h>
 
+int	main(void)
+{
+	void	*mlx_ptr;
+
+	mlx_ptr = mlx_init();
+	if (!mlx_ptr)
+		return (1);
+	//mlx_destroy_display(mlx_ptr);
+	free(mlx_ptr);
+	system("leaks fractol");
+}
+
+/*
 typedef struct s_data {
 	
 	void		*img;
@@ -62,7 +75,6 @@ int	main(void)
 	{
     	buffer[(y * line_bytes) + x] = color;
 	}
-	/*
 	for (int y = 0; y < 1080; ++y)
 	for(int x = 0; x < 1920; ++x)
 	{
@@ -82,8 +94,8 @@ int	main(void)
     	    buffer[pixel + 2] = (color >> 16) & 0xFF;
     	    buffer[pixel + 3] = (color >> 24);
     	}
-	}*/
+	}
 	mlx_put_image_to_window(mlx, mlx_win, image, 0, 0);
 	mlx_loop(mlx);
 	free(mlx);
-}
+}*/
