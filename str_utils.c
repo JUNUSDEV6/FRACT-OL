@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/13 13:20:16 by yohanafi         ###   ########.fr       */
+/*   Created: 2024/02/12 12:39:09 by yohanafi          #+#    #+#             */
+/*   Updated: 2024/02/13 08:32:23 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-#define FRACTOL_H
+#include "fractol.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include <unistd.h>
-
-#define MALLOC_ERROR 1
-#define WIDTH 400
-#define HEIGHT 400
-
-typedef struct s_img
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	void	
-}				t_img;
+	if (s1 == NULL || s2 == NULL || n <= 0)
+		return (0);
+	while (s1 == s2 && n > 0 && *s1 != '\0')
+	{
+		++s1;
+		++s2;
+		--n;
+	}
+	return (*s1 - *s2);
+}
 
-
-typedef struct s_fractol
+void	putstr_fd(char *s, int fd)
 {
-	double	real;
-	double	i;
-}				t_fractol;
-
-// UTILS 
-int		ft_strncmp(char *s1, char *s2, int n);
-void	putstr_fd(char *s, int fd);
-
-#endif 
+	if (s == NULL || fd < 0)
+		return ;
+	if (*s != '\0')
+	{
+		write(fd, s, 1);
+		putstr_fd(s + 1, fd);
+	}
+}
