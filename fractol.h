@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/13 13:20:16 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:46:00 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,23 @@
 
 typedef struct s_img
 {
-	void	
+	void	*img_ptr;
+	char	*pixels_ptr;
+	int		bpp;
+	int		endian;
+	int		line_leng;
 }				t_img;
 
-
-typedef struct s_fractol
+typedef struct s_fractal
 {
-	double	real;
-	double	i;
-}				t_fractol;
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_window;
+	t_img	img;
+}					t_fractal;
+
+// FRACTAL
+void fractal_init(t_fractal *fractal);
 
 // UTILS 
 int		ft_strncmp(char *s1, char *s2, int n);

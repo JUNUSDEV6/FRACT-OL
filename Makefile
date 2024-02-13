@@ -1,5 +1,5 @@
 NAME = fractol
-SRCS = main.c str_utils.c
+SRCS = main.c str_utils.c init.c
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
