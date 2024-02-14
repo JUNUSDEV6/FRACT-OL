@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/13 14:40:59 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:24:27 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	malloc_error(void)
 {
-	//todo;
+	printf("ERROR MALLOC");
+	exit(EXIT_FAILURE);
 }
 
 void fractal_init(t_fractal *fractal)
@@ -29,5 +30,11 @@ void fractal_init(t_fractal *fractal)
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
-	fractal->img.img_ptr = mlx_get_data_addr(fractal->img.img_ptr, &fractal->img.bpp, fractal->img.endian);
+	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, WIDTH, HEIGHT);
+	if (fractal->img.img_ptr == NULL)
+	{
+		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
+		free(fractal->mlx_connection);
+		malloc_error();
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/13 14:46:00 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/14 10:25:04 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_fractal
 }					t_fractal;
 
 // FRACTAL
-void fractal_init(t_fractal *fractal);
+void 	fractal_init(t_fractal *fractal);
 
 // UTILS 
 int		ft_strncmp(char *s1, char *s2, int n);
