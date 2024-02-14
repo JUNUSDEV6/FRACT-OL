@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/14 10:25:04 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:43:45 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ typedef struct s_fractal
 	void	*mlx_window;
 	t_img	img;
 }					t_fractal;
+
+typedef struct s_params_map
+{
+	double	unscaled_num;
+	double	new_min;
+	double	new_max;
+	double	old_min;
+	double	old_max;
+}				t_params_map;
+
+typedef struct s_complex
+{
+	double	x;
+	double	y;
+}				t_complex;
+
 
 // FRACTAL
 void 	fractal_init(t_fractal *fractal);
