@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/15 14:29:07 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:14:03 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_complex
 void 	fractal_init(t_fractal *fractal);
 
 /*--------RENDER--------*/
-void	handle_error(int x, int y, t_fractal *fractal);
+void	handle_pixels(int x, int y, t_fractal *fractal);
 /*--------UTILS--------*/
 double	ft_map(t_params_map *p);
 int		ft_strncmp(char *s1, char *s2, int n);

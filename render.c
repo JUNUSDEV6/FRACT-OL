@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/15 14:28:14 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/15 17:13:55 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	get_struct(t_params_map **params, int value, int side_window, char c
 	}
 }
 
-void	handle_error(int x, int y, t_fractal *fractal)
+void	handle_pixels(int x, int y, t_fractal *fractal)
 {
 	t_complex		z;
 	t_complex		c;
