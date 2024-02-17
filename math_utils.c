@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 11:01:11 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/15 14:28:48 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:06:03 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,22 @@ double	ft_map(t_params_map *p)
 {
 	return ((p->new_max - p->new_min) * (p->unscaled_num - p->old_min) 
 		/ (p->old_max - p->old_min) + p->new_min);
+}
+
+t_complex	sum_complex(t_complex z1, t_complex z2)
+{
+	t_complex	result;
+
+	result.x = z1.x + z2.x;
+	result.y = z1.y + z2.y;
+	return (result);
+}
+
+t_complex	square_complex(t_complex z)
+{
+	t_complex	result;
+
+	result.x = (z.x * z.x) - (z.y * z.y);
+	result.y = 2 * z.x * z.y;
+	return (result);
 }
