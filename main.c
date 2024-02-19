@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:57:12 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/13 14:46:34 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:22:36 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;
 	
+	fractal = NULL;
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))||
 	(argc == 4 && !ft_strncmp(argv[2], "julia", 5)))
 	{

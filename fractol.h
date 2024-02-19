@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/15 17:14:03 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:32:51 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
+# include "mlx/mlx.h"
 
 #define MALLOC_ERROR 1
 #define WIDTH 400
 #define HEIGHT 400
+
+// Define RGB colors
+#define RED     255, 0, 0
+#define GREEN   0, 255, 0
+#define BLUE    0, 0, 255
+#define YELLOW  255, 255, 0
+#define CYAN    0, 255, 255
+#define MAGENTA 255, 0, 255
+#define WHITE   255, 255, 255
+#define BLACK   0, 0, 0
 
 typedef struct s_img
 {
@@ -37,6 +48,8 @@ typedef struct s_fractal
 	void	*mlx_connection;
 	void	*mlx_window;
 	t_img	img;
+	double	escape_value;
+	int		iterations_defintion;
 }					t_fractal;
 
 typedef struct s_params_map
@@ -56,13 +69,15 @@ typedef struct s_complex
 
 
 /*--------INIT--------*/
-void 	fractal_init(t_fractal *fractal);
+void 		fractal_init(t_fractal *fractal);
 
 /*--------RENDER--------*/
-void	handle_pixels(int x, int y, t_fractal *fractal);
+void		handle_pixels(int x, int y, t_fractal *fractal);
 /*--------UTILS--------*/
-double	ft_map(t_params_map *p);
-int		ft_strncmp(char *s1, char *s2, int n);
-void	putstr_fd(char *s, int fd);
+double		ft_map(t_params_map *p);
+t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	square_complex(t_complex z);
+int			ft_strncmp(char *s1, char *s2, int n);
+void		putstr_fd(char *s, int fd);
 
 #endif 
