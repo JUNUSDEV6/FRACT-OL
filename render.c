@@ -6,37 +6,21 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/19 16:00:24 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:55:16 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/*
-static void	get_struct(t_params_map **params, int value, int side_window, char c)
+static void	pixel_put(int x, int y, t_img *img, int color)
 {
-	*params = malloc(sizeof(t_params_map));
-	if (!*params)
-	{
-		free (*params);
-		return ;
-	}
-	(*params)->unscaled_num = value;
-	(*params)->old_max = side_window;
-	(*params)->old_min = 0;
-	if (c == 'x')
-	{
-		(*params)->new_min = -2;
-		(*params)->new_max = +2;
-	}
-	else if (c == 'y')
-	{
-		(*params)->new_min = +2;
-		(*params)->new_max = -2;
-	}
+	int	offset;
+
+	offset = (y * img->line_leng) + (x * (img->bpp / 8));
+	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
-*/
-t_params_map	*get_struct(int value, int side_window, char c)
+
+static t_params_map	*get_struct(int value, int side_window, char c)
 {
 	t_params_map	*params;
 
@@ -88,3 +72,4 @@ void	handle_pixels(int x, int y, t_fractal *fractal)
 		i++;
 	}
 }
+ 
