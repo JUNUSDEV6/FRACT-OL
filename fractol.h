@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/20 10:56:44 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:12:26 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,27 @@
 #define WIDTH 400
 #define HEIGHT 400
 
-// Define RGB colors
-#define RED     255, 0, 0
-#define GREEN   0, 255, 0
-#define BLUE    0, 0, 255
-#define YELLOW  255, 255, 0
-#define CYAN    0, 255, 255
-#define MAGENTA 255, 0, 255
-#define WHITE   255, 255, 255
-#define BLACK   0, 0, 0
+// Define RGB colors from HEX
+#define BLACK           0x000000
+#define WHITE           0xFFFFFF
+#define RED             0xFF0000
+#define GREEN           0x00FF00
+#define BLUE            0x0000FF
+#define YELLOW          0xFFFF00
+#define CYAN            0x00FFFF
+#define MAGENTA         0xFF00FF
+#define GRAY            0x808080
+#define PSYCHEDELIC_1   0xF50909   // Red
+#define PSYCHEDELIC_2   0x0D98BA   // Turquoise
+#define PSYCHEDELIC_3   0x9A0DF5   // Purple
+#define PSYCHEDELIC_4   0xFF8B00   // Orange
+#define PSYCHEDELIC_5   0x00BFFF   // Deep Sky Blue
+#define PSYCHEDELIC_6   0x98FF00   // Chartreuse
+#define PSYCHEDELIC_7   0xFF00FF   // Fuchsia
+#define PSYCHEDELIC_8   0x00FF00   // Lime
+#define PSYCHEDELIC_9   0xFFD700   // Gold
+#define PSYCHEDELIC_10  0xFF69B4   // Hot Pink
+
 
 typedef struct s_img
 {
