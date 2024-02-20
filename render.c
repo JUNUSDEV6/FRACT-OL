@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/19 15:30:20 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:00:24 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,27 @@ t_params_map	*get_struct(int value, int side_window, char c)
 	t_params_map	*params;
 
 	params = malloc(sizeof(t_params_map));
-    if (!params)
-        return (NULL);
-    params->unscaled_num = value;
-    params->old_max = side_window;
-    params->old_min = 0;
-    if (c == 'x')
-    {
-        params->new_min = -2;
-        params->new_max = 2;
-    }
-    else if (c == 'y')
-    {
-        params->new_min = 2;
-        params->new_max = -2;
-    }
-    return (params);
+	if (!params)
+		return (NULL);
+	params->unscaled_num = value;
+	params->old_max = side_window;
+	params->old_min = 0;
+	if (c == 'x')
+	{
+		params->new_min = -2;
+		params->new_max = 2;
+	}
+	else if (c == 'y')
+	{
+		params->new_min = 2;
+		params->new_max = -2;
+	}
+	else if (c == 'c')
+	{
+		params->new_min = BLACK;
+		params->new_max = WHITE;
+	}
+	return (params);
 }
 
 void	handle_pixels(int x, int y, t_fractal *fractal)
@@ -77,9 +82,9 @@ void	handle_pixels(int x, int y, t_fractal *fractal)
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
 			color = ft_map(get_struct(i, fractal->iterations_defintion, 'c'));
-			my_pixel_put();
+			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
+		i++;
 	}
 }
-
