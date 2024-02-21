@@ -6,13 +6,13 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/20 10:55:16 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:43:41 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	pixel_put(int x, int y, t_img *img, int color)
+static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
 	int	offset;
 
@@ -71,5 +71,22 @@ void	handle_pixels(int x, int y, t_fractal *fractal)
 		}
 		i++;
 	}
+	my_pixel_put(x, y, &fractal->img, PSYCHEDELIC_6);
 }
  
+void	fractal_render(t_fractal *fractal)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < HEIGHT)
+	{
+		x = -1;
+		while (++x < WIDTH)
+		{
+			handle_pixels(x, y, fractal);
+		}
+	}
+	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, fractal->img.img_ptr, 0 ,0);
+}
