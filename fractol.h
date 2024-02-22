@@ -6,12 +6,12 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/20 13:36:45 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:55:58 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
-#define FRACTOL_H
+# define FRACTOL_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -19,31 +19,30 @@
 # include <unistd.h>
 # include "mlx/mlx.h"
 
-#define MALLOC_ERROR 1
-#define WIDTH 400
-#define HEIGHT 400
+# define MALLOC_ERROR 1
+# define WIDTH 1000
+# define HEIGHT 1000
 
 // Define RGB colors from HEX
-#define BLACK           0x000000
-#define WHITE           0xFFFFFF
-#define RED             0xFF0000
-#define GREEN           0x00FF00
-#define BLUE            0x0000FF
-#define YELLOW          0xFFFF00
-#define CYAN            0x00FFFF
-#define MAGENTA         0xFF00FF
-#define GRAY            0x808080
-#define PSYCHEDELIC_1   0xF50909   // Red
-#define PSYCHEDELIC_2   0x0D98BA   // Turquoise
-#define PSYCHEDELIC_3   0x9A0DF5   // Purple
-#define PSYCHEDELIC_4   0xFF8B00   // Orange
-#define PSYCHEDELIC_5   0x00BFFF   // Deep Sky Blue
-#define PSYCHEDELIC_6   0x98FF00   // Chartreuse
-#define PSYCHEDELIC_7   0xFF00FF   // Fuchsia
-#define PSYCHEDELIC_8   0x00FF00   // Lime
-#define PSYCHEDELIC_9   0xFFD700   // Gold
-#define PSYCHEDELIC_10  0xFF69B4   // Hot Pink
-
+# define BLACK           0x000000
+# define WHITE           0xFFFFFF
+# define RED             0xFF0000
+# define GREEN           0x00FF00
+# define BLUE            0x0000FF
+# define YELLOW          0xFFFF00
+# define CYAN            0x00FFFF
+# define MAGENTA         0xFF00FF
+# define GRAY            0x808080
+# define PSYCHEDELIC_1   0xF50909   // Red
+# define PSYCHEDELIC_2   0x0D98BA   // Turquoise
+# define PSYCHEDELIC_3   0x9A0DF5   // Purple
+# define PSYCHEDELIC_4   0xFF8B00   // Orange
+# define PSYCHEDELIC_5   0x00BFFF   // Deep Sky Blue
+# define PSYCHEDELIC_6   0x98FF00   // Chartreuse
+# define PSYCHEDELIC_7   0xFF00FF   // Fuchsia
+# define PSYCHEDELIC_8   0x00FF00   // Lime
+# define PSYCHEDELIC_9   0xFFD700   // Gold
+# define PSYCHEDELIC_10  0xFF69B4   // Hot Pink
 
 typedef struct s_img
 {
@@ -79,15 +78,14 @@ typedef struct s_complex
 	double	y;
 }				t_complex;
 
-
 /*--------INIT--------*/
-void 		fractal_init(t_fractal *fractal);
+void		fractal_init(t_fractal *fractal);
 void		data_init(t_fractal *fractal);
 void		init_img_clean(t_img *img);
 
 /*--------RENDER--------*/
 void		fractal_render(t_fractal *fractal);
-void		handle_pixels(int x, int y, t_fractal *fractal);
+
 /*--------UTILS--------*/
 double		ft_map(t_params_map *p);
 t_complex	sum_complex(t_complex z1, t_complex z2);

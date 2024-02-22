@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/20 13:43:41 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:11:33 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ static t_params_map	*get_struct(int value, int side_window, char c)
 	}
 	else if (c == 'c')
 	{
-		params->new_min = BLACK;
-		params->new_max = WHITE;
+		params->new_min = PSYCHEDELIC_5;
+		params->new_max = PSYCHEDELIC_2;
 	}
 	return (params);
 }
 
-void	handle_pixels(int x, int y, t_fractal *fractal)
+static void	handle_pixels(int x, int y, t_fractal *fractal)
 {
 	t_complex		z;
 	t_complex		c;
@@ -71,9 +71,9 @@ void	handle_pixels(int x, int y, t_fractal *fractal)
 		}
 		i++;
 	}
-	my_pixel_put(x, y, &fractal->img, PSYCHEDELIC_6);
+	my_pixel_put(x, y, &fractal->img, PSYCHEDELIC_10);
 }
- 
+
 void	fractal_render(t_fractal *fractal)
 {
 	int	x;
@@ -88,5 +88,6 @@ void	fractal_render(t_fractal *fractal)
 			handle_pixels(x, y, fractal);
 		}
 	}
-	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, fractal->img.img_ptr, 0 ,0);
+	mlx_put_image_to_window(fractal->mlx_connection, 
+		fractal->mlx_window, fractal->img.img_ptr, 0, 0);
 }
