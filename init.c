@@ -35,7 +35,7 @@ void	data_init(t_fractal *fractal)
 
 static void	event_init(t_fractal *fractal)
 {
-	mlx_hook(fractal->mlx_connection, KeyPress, KeyPressMask, key_handle, fractal);
+	//mlx_hook(fractal->mlx_connection, KeyPress, KeyPressMask, key_handle, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
