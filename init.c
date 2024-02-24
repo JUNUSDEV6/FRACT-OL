@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/21 16:18:11 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:54:57 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	data_init(t_fractal *fractal)
 	fractal->iterations_defintion = 42;
 }
 
-static void	event_init(t_fractal *fractal)
-{
-	//mlx_hook(fractal->mlx_connection, KeyPress, KeyPressMask, key_handle, fractal);
-}
+// static void	event_init(t_fractal *fractal)
+// {
+// 	//mlx_hook(fractal->mlx_connection, KeyPress, KeyPressMask, key_handle, fractal);
+// }
 
 void	fractal_init(t_fractal *fractal)
 {
