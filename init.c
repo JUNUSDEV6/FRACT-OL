@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/24 14:54:57 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:18:28 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,33 @@ void	data_init(t_fractal *fractal)
 // 	//mlx_hook(fractal->mlx_connection, KeyPress, KeyPressMask, key_handle, fractal);
 // }
 
+#define ESC_KEY 53  // The keycode for the ESC key (you can adjust this if needed)
+
+static int key_event(int keycode, void *param)
+{
+    (void)param;  // Suppress unused parameter warning
+
+    if (keycode == ESC_KEY)
+    {
+        // ESC key pressed, close the window and quit the program
+        printf("ESC key pressed. Exiting...\n");
+        exit(EXIT_SUCCESS);
+    }
+
+    // You can handle other key events here
+
+    return 0;  // Return 0 to indicate that the event has been handled
+}
+
+static int close_event(void *param)
+{
+    (void)param;  // Suppress unused parameter warning
+
+    // Close button clicked, close the window and quit the program
+    printf("Close button clicked. Exiting...\n");
+    exit(EXIT_SUCCESS);
+}
+
 void	fractal_init(t_fractal *fractal)
 {
 	fractal->mlx_connection = mlx_init();
@@ -51,6 +78,8 @@ void	fractal_init(t_fractal *fractal)
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
+	mlx_mouse_hook(fractal->mlx_window, key_event, NULL);
+	mlx_mouse_hook(fractal->mlx_window, close_event, NULL);
 	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, 
 			WIDTH, HEIGHT);
 	if (fractal->img.img_ptr == NULL)
