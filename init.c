@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/27 12:05:00 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:32:54 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,5 @@ void	fractal_init(t_fractal *fractal)
 	}
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, 
 			&fractal->img.bpp, &fractal->img.line_leng, &fractal->img.endian);
-	//mlx_key_hook(fractal->mlx_connection, key_press, NULL);
 	data_init(fractal);
 }
