@@ -7,7 +7,6 @@ RM = rm -f
 CFLAGS = -Wall -Wextra Werror
 
 %.o: %.c
-	make -C ./mlx
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME): $(OBJS)
@@ -16,7 +15,6 @@ $(NAME): $(OBJS)
 all: ${NAME}
 
 clean:
-	make clean -C ./mlx
 	${RM} ${OBJS}
 
 fclean: clean

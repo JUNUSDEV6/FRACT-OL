@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/21 14:55:58 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:00:20 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # define MALLOC_ERROR 1
 # define WIDTH 1000
 # define HEIGHT 1000
+
+// KEY_EVENT 
+enum
+{
+	KEY_ESCAPE = 53,
+};
 
 // Define RGB colors from HEX
 # define BLACK           0x000000
@@ -82,6 +88,7 @@ typedef struct s_complex
 void		fractal_init(t_fractal *fractal);
 void		data_init(t_fractal *fractal);
 void		init_img_clean(t_img *img);
+int 		key_event(t_fractal *fractal, int keycode);
 
 /*--------RENDER--------*/
 void		fractal_render(t_fractal *fractal);
