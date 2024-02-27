@@ -6,12 +6,11 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:57:12 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/21 15:06:58 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:59:10 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <mlx.h>
 
 int	main(int argc, char **argv)
 {
@@ -23,6 +22,7 @@ int	main(int argc, char **argv)
 		fractal.name = argv[1];
 		fractal_init(&fractal);
 		fractal_render(&fractal);
+		event(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
 	else

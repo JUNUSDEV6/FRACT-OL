@@ -1,16 +1,17 @@
 NAME = fractol
-SRCS = main.c str_utils.c init.c math_utils.c render.c
+SRCS = main.c str_utils.c init.c math_utils.c render.c event.c
 
 OBJS = ${SRCS:.c=.o}
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra Werror
+CFLAGS = -Wall -Wextra -Werror
+SAN = -fsanitize=address -g3
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) $(SAN) -Imlx -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -fsanitize=address -g3 -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(SAN) -o $(NAME) mlx/libmlx.a
 
 all: ${NAME}
 
