@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/04 15:23:08 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:30:54 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ typedef struct s_fractal
 	t_img	img;
 	double	escape_value;
 	int		iterations_defintion;
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
 }					t_fractal;
 
 typedef struct s_params_map

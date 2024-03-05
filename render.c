@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/21 15:11:33 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:51:59 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void	handle_pixels(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = ft_map(get_struct(x, WIDTH, 'x'));
-	c.y = ft_map(get_struct(y, HEIGHT, 'y'));
+	c.x = (ft_map(get_struct(x, WIDTH, 'x')) * fractal->zoom) + fractal->shift_x;
+	c.y = (ft_map(get_struct(y, HEIGHT, 'y')) * fractal->zoom) + fractal->shift_y;
 	while (i < fractal->iterations_defintion)
 	{
 		z = sum_complex(square_complex(z), c);

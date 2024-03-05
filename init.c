@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/02/27 13:32:54 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:55:13 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
 	fractal->iterations_defintion = 42;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0;
 }
 
 void	fractal_init(t_fractal *fractal)
