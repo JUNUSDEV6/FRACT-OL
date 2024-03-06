@@ -4,7 +4,7 @@ SRCS = main.c str_utils.c init.c math_utils.c render.c event.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -finline-functions -fvectorize -fslp-vectorize -ffast-math -falign-functions -funroll-loops -fstrict-aliasing -fomit-frame-pointer -flto -Ofast -O1 -O2 -Os -O3 
 SAN = -fsanitize=address -g3
 
 %.o: %.c
