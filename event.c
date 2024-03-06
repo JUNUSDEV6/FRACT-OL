@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:53:54 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/05 16:15:56 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:37:11 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ int	key_press(int keycode, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_event (int keycode, t_fractal *fractal)
+int	mouse_handle(int mousecode, int x, int y, t_fractal *fractal)
 {
-	if (keycode == 5)
+	(void)x;
+	(void)y;
+	if (mousecode == 4)
 		fractal->zoom *= 1.5;
-	if (keycode == 4)
-		fractal->zoom *= 0.95;
+	if (mousecode == 5)
+		fractal->zoom *= 0.5;
 	fractal_render(fractal);
 	return (0);
 }
@@ -48,5 +50,5 @@ void	event(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_window, 2, 0, key_press, fractal);
 	mlx_hook(fractal->mlx_window, 17, 0, ft_close, fractal);
-	mlx_mouse_hook(fractal->mlx_window, mouse_event, fractal);
+	mlx_hook(fractal->mlx_window, 4, 0, mouse_handle, fractal);
 }

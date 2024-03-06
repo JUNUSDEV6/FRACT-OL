@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/05 15:30:54 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:16:51 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 enum
 {
 	KEY_ESCAPE = 53,
+	ON_MOUSE_DW	= 4,
 };
 
 // Define RGB colors from HEX
@@ -67,9 +68,9 @@ typedef struct s_fractal
 	t_img	img;
 	double	escape_value;
 	int		iterations_defintion;
+	double	zoom;
 	double	shift_x;
 	double	shift_y;
-	double	zoom;
 }					t_fractal;
 
 typedef struct s_params_map
@@ -96,6 +97,7 @@ int			ft_close(t_fractal *fractal);
 void		event(t_fractal *fractal);
 
 /*--------RENDER--------*/
+int			mouse_handle(int mousecode, int x, int y, t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 
 /*--------UTILS--------*/
