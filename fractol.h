@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/08 11:42:20 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:30:51 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct s_fractal
 	double	zoom;
 	double	shift_x;
 	double	shift_y;
+	double	julia_x;
+	double	julia_y;
 }					t_fractal;
 
 typedef struct s_params_map
@@ -96,7 +98,7 @@ int			mouse_handle(int mousecode, int x, int y, t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 
 /*--------UTILS--------*/
-double		ft_map(t_params_map *p);
+double		ft_map(t_params_map p);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			ft_strncmp(const char *s1, char *s2, size_t n);

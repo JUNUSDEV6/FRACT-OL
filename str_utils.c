@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:39:09 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/08 11:40:21 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:55:18 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ double	atodbl(char *s)
 
 	integer_part = 0;
 	fractional_part = 0;
-	sign = 1;
+	sign = +1;
 	pow = 1;
-	while ((*s >= 9 && s* <= 13) || *s == 32)
+	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
-	while (*s == '+' || s* == '-')
+	while (*s == '+' || *s == '-')
 		if (*s++ == '-')
 			sign *= -1;
 	while (*s != '.' && *s)
@@ -35,7 +35,7 @@ double	atodbl(char *s)
 	while (*s)
 	{
 		pow /= 10;
-		fractional_part = fractional_part + (*s++ - 48);
+		fractional_part = fractional_part + (*s++ - 48) * pow;
 	}
 	return ((integer_part + fractional_part) * sign);
 }
