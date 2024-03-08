@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/06 12:16:51 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:42:20 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@
 # define HEIGHT 1000
 
 // KEY_EVENT 
-enum
-{
-	KEY_ESCAPE = 53,
-	ON_MOUSE_DW	= 4,
-};
 
 // Define RGB colors from HEX
 # define BLACK           0x000000
@@ -106,5 +101,7 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			ft_strncmp(const char *s1, char *s2, size_t n);
 void		putstr_fd(char *s, int fd);
+double		atodbl(char *s);
+
 
 #endif 
