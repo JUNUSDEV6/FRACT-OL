@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:54:21 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/08 13:30:51 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:37:53 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			ft_strncmp(const char *s1, char *s2, size_t n);
 void		putstr_fd(char *s, int fd);
-double		atodbl(char *s);
-
+double		atodbl(char *s, long integer_part, 
+				double pow, double fractional_part);
 
 #endif 

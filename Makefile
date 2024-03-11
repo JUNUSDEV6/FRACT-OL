@@ -8,6 +8,7 @@ CFLAGS = -Wall -Wextra -Werror -finline-functions -fvectorize -fslp-vectorize -f
 SAN = -fsanitize=address -g3
 
 %.o: %.c
+	make -C ./mlx
 	$(CC) $(CFLAGS) $(SAN) -Imlx -c $< -o $@
 
 $(NAME): $(OBJS)
@@ -16,6 +17,7 @@ $(NAME): $(OBJS)
 all: ${NAME}
 
 clean:
+	make clean -C ./mlx
 	${RM} ${OBJS}
 
 fclean: clean

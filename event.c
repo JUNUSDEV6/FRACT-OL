@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:53:54 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/06 12:37:11 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:36:25 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	key_press(int keycode, t_fractal *fractal)
 {
 	if (keycode == 53)
 		ft_close(fractal);
-	else if (keycode == 126) // arrow_up
+	else if (keycode == 126)
 		fractal->shift_y += (0.25 * fractal->zoom);
 	else if (keycode == 125)
 		fractal->shift_y -= (0.25 * fractal->zoom);

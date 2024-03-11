@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:09:45 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/08 13:32:42 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:39:36 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ static void	handle_pixels(int x, int y, t_fractal *fractal)
 	int				color;
 
 	i = 0;
-	z.x = (ft_map(get_struct(x, WIDTH, 'x')) * fractal->zoom) + fractal->shift_x;
-	z.y = (ft_map(get_struct(y, HEIGHT, 'y')) * fractal->zoom) + fractal->shift_y;
+	z.x = (ft_map(get_struct(x, WIDTH, 'x')) * 
+			fractal->zoom) + fractal->shift_x;
+	z.y = (ft_map(get_struct(y, HEIGHT, 'y')) * 
+			fractal->zoom) + fractal->shift_y;
 	mandel_vs_julia(&z, &c, fractal);
 	while (i < fractal->iterations_defintion)
 	{

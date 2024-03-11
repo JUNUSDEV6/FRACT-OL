@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:44:03 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/05 15:55:13 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:27:11 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	init_img_clean(t_img *img)
 
 static void	malloc_error(void)
 {
-	printf("ERROR MALLOC");
-	exit(EXIT_FAILURE);
+	perror("ERROR MALLOC");
+	exit(1);
 }
 
 void	data_init(t_fractal *fractal)
