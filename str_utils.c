@@ -6,7 +6,7 @@
 /*   By: yohanafi <yohanafi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 12:39:09 by yohanafi          #+#    #+#             */
-/*   Updated: 2024/03/11 11:40:46 by yohanafi         ###   ########.fr       */
+/*   Updated: 2024/03/12 09:19:24 by yohanafi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ int	ft_strncmp(const char *s1, char *s2, size_t n)
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (0);
+	if (*s1 == '\0')
+		return (0);
+	return (-1);
 }
 
 void	putstr_fd(char *s, int fd)
